@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Add New Stand</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Stand Number:</label>
+        <input type="text" name="stand_number" class="form-control" required>
+        
+        <label>Location:</label>
+        <input type="text" name="location" class="form-control" required>
+        
+        <label>Size:</label>
+        <input type="text" name="size" class="form-control" required>
+        
+        <label>Price:</label>
+        <input type="number" name="price" class="form-control" required>
+        
+        <button type="submit" class="btn btn-primary mt-3">Add Stand</button>
+    </form>
+</div>
+{% endblock %}

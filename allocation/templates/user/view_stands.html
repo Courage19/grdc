@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Available Stands</h2>
+    <div class="row">
+        {% for stand in stands %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ stand.stand_number }}</h5>
+                    <p>Location: {{ stand.location }}</p>
+                    <p>Size: {{ stand.size }}</p>
+                    <p>Price: ${{ stand.price }}</p>
+                    <a href="{% url 'apply_for_stand' stand.id %}" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

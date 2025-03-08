@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Edit User</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" value="{{ user.username }}" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" class="form-control" value="{{ user.email }}" required>
+
+        <label>Admin Role:</label>
+        <input type="checkbox" name="is_staff" {% if user.is_staff %}checked{% endif %}> Admin
+
+        <button type="submit" class="btn btn-success mt-3">Update User</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Your Applications</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stand Number</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Applied On</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in applications %}
+            <tr>
+                <td>{{ app.stand.stand_number }}</td>
+                <td>{{ app.stand.location }}</td>
+                <td>{{ app.status }}</td>
+                <td>{{ app.applied_on }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

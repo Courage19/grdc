@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Add New User</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" class="form-control" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" class="form-control" required>
+
+        <label>Admin Role:</label>
+        <input type="checkbox" name="is_staff"> Make this user an admin
+
+        <button type="submit" class="btn btn-primary mt-3">Add User</button>
+    </form>
+</div>
+{% endblock %}

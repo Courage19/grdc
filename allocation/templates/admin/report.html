@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Application Reports</h2>
+    <ul>
+        <li>Total Stands: {{ total_stands }}</li>
+        <li>Total Applications: {{ total_applications }}</li>
+        <li>Approved Applications: {{ approved }}</li>
+        <li>Rejected Applications: {{ rejected }}</li>
+        <li>Pending Applications: {{ pending }}</li>
+    </ul>
+</div>
+{% endblock %}

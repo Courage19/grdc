@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Manage Stands</h2>
+    <a href="{% url 'add_stand' %}" class="btn btn-primary mb-3">Add Stand</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stand Number</th>
+                <th>Location</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stand in stands %}
+            <tr>
+                <td>{{ stand.stand_number }}</td>
+                <td>{{ stand.location }}</td>
+                <td>{{ stand.size }}</td>
+                <td>${{ stand.price }}</td>
+                <td>{{ "Available" if stand.is_available else "Taken" }}</td>
+                <td>
+                    <a href="{% url 'edit_stand' stand.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete_stand' stand.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
